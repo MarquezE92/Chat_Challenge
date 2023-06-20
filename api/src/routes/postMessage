@@ -1,0 +1,20 @@
+const { Router } = require('express');
+const Chat = require ('../models/chat');
+const router = Router();
+const express = require('express');
+router.use(express.json());
+
+const routePostMessage = async (req,res)=> {
+	const newMessage = new Chat(req.body);
+
+	try{
+		const newEntry = await newMessage.save()
+		res.send("New message registered in chat");
+	} catch(error) {
+		console.log(error)
+		res.status(500).json(error)
+	}
+	
+};
+
+module.exports = { routePostMessage };
