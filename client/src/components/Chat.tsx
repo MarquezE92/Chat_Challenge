@@ -54,11 +54,16 @@ useEffect(()=> {
   <div className='messagesContainer'>
     {
         chatMessages?.map(message=>(
-            <div>
-               { message.content}
-               { message.sender}
-               { message.recipient}
-               { formatDate(message.createdAt)}
+            <div className='chatBubble'>
+                <p className='date'>{ formatDate(message.createdAt)}</p>
+                <p className='interlocutors'><span>From:</span> { message.sender}</p>
+                <p className='interlocutors'><span>To:</span> { message.recipient}</p>
+                <br/>
+                <p className='message'>{ message.content}</p>
+               
+               
+               
+               
             </div>
         ))
     }

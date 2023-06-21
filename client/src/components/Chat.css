@@ -4,3 +4,36 @@
     gap: 24px;
     padding: 24px;
 }
+
+.chatBubble {
+    height: fit-content;
+    width: fit-content;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.date {
+    font-size: 12px;
+    font-weight: 600;
+    color: #464646;
+    align-self: flex-end;
+}
+
+.interlocutors {
+    font-size: 14px;
+    color: #464646;
+}
+
+.interlocutors>span {
+    font-weight: 600;
+    text-decoration: underline;
+}
+.message {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0598c7;
+}
