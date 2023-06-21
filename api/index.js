@@ -56,11 +56,12 @@ const server = app.listen(app.get('port'), () => {
 
 const io = socketIO(server, {
 cors: {
-  origin:[ "http://localhost:3000"],
+  origin:[ "http://localhost:5173"],
   credentials: true,
 },
 });
 
 Chat.watch().on('change', data => {
-io.emit('update', data);
+ 
+io.emit('update', data?.fullDocument);
 });
