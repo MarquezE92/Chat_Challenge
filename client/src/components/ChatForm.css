@@ -1,0 +1,37 @@
+.message-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  } 
+
+  .sendBtn {
+    background-color: #def1f7;
+    border: none;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .sendBtn:hover {
+    border: 2px solid #0598c7;
+    color:#0598c7;
+    cursor: pointer;
+  }
