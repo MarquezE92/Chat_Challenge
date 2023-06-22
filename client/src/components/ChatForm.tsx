@@ -29,9 +29,8 @@ const ChatForm: React.FC = () => {
       .then(response => {
         console.log('Message sent successfully!', response.data);
         setMessage({
-            content: '',
-            sender: '',
-            recipient: '',
+          ...message,
+            content: ''
           })
       })
       .catch(error => {
