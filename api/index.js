@@ -1,4 +1,5 @@
-{origin: 'http://localhost:3000'}const mongoose = require('mongoose');
+//{origin: 'http://localhost:5173'}
+const mongoose = require('mongoose');
 const express = require('express');
 const routes = require('./src/routes/index');
 const cookieParser = require('cookie-parser');

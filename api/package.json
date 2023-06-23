@@ -4,12 +4,14 @@
   "description": "chat challenge back",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L index.js"
+    "start": "nodemon -L index.js",
+    "test": "mocha ./src/test/index.test.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "chai": "^4.3.7",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -18,5 +20,9 @@
     "mongoose": "^7.3.0",
     "nodemon": "^2.0.22",
     "socket.io": "^4.6.2"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "supertest-session": "^4.1.0"
   }
 }
