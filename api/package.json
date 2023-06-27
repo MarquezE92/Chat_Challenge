@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -L index.js",
-    "test": "mocha ./src/test/index.test.js"
+    "test": "jest ./src/test/index.test.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "socket.io": "^4.6.2"
   },
   "devDependencies": {
+    "jest": "^29.5.0",
     "mocha": "^10.2.0",
     "supertest-session": "^4.1.0"
   }

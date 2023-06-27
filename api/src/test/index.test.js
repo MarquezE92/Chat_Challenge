@@ -1,38 +1,32 @@
-const { expect } = require('chai');
-const session = require('supertest-session');
-const app = require('../routes/index');
+const { routeGetAllMessages } = require('../routes/getAllMessages');
+const Chat = require('../models/chat');
 
-const testSession = session(app);
+it('test_happy_path_returns_messages', async () => {
+  const mockChat = [
+    { _id: 5, message: 'message 5' },
+    { _id: 4, message: 'message 4' },
+    { _id: 3, message: 'message 3' },
+    { _id: 2, message: 'message 2' },
+    { _id: 1, message: 'message 1' }
+  ];
 
-describe('Get messages route', () => {
-  const getMessages = async () => {
-    return new Promise((resolve, reject) => {
-      testSession
-        .get('/messages') // Reemplaza por la ruta correcta a tu ruta de mensajes
-        .timeout(5000)
-        .expect(200) // Verificar que el status de respuesta sea 200
-        .expect.arrayContaining({
-          _id: expect.string,
-          content: expect.string,
-          sender: expect.string,
-          recipient: expect.string,
-          createdAt: expect.string,
-        })
-        .end((err, res) => {
-          if (err) {
-            reject(err);
-          } else {
-            resolve(res);
-          }
-        });
-    });
+  // Simular el método 'find' del modelo Chat
+  Chat.find = jest.fn().mockReturnValue({
+    sort: jest.fn().mockReturnValue({
+      limit: jest.fn().mockReturnValue(mockChat)
+    })
+  });
+
+  const mockResponse = {
+    status: jest.fn().mockReturnThis(), // Simular el método 'status'
+    json: jest.fn()
   };
 
-  it('Should respond with an array of messages', async(done) => {
-     
-    const messages = await getMessages();
-    expect(messages).to.have.length(1);
-  
-    done();
-  });
+  await routeGetAllMessages({}, mockResponse);
+
+  expect(Chat.find).toHaveBeenCalled();
+  expect(Chat.find().sort).toHaveBeenCalledWith({ _id: -1 });
+  expect(Chat.find().sort().limit).toHaveBeenCalledWith(5);
+  expect(mockResponse.status).toHaveBeenCalledWith(200);
+  expect(mockResponse.json).toHaveBeenCalledWith(mockChat);
 });
