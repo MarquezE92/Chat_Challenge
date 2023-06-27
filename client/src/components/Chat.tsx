@@ -16,7 +16,7 @@ const Chat = () => {
   function formatDate(date: Date): string {
     const dateString = date?.toString();
     const day = `${dateString.substring(8, 10)}/${dateString.substring(5, 7)}`
-    const hour = `${Number(dateString.substring(11, 13)) - 3}:${dateString.substring(14, 16)}`
+    const hour = `${new Date(date).getHours()}:${dateString.substring(14, 16)}`
 
     return ` ${day} at ${hour}`;
   }
