@@ -4,12 +4,12 @@
 
 .chatDiv {
   width: 60%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #def1f7;
 }
 
 .chatFormDiv {
-  height: 100vh;
+  min-height: 100vh;
   width: 40%;
   display: flex;
   justify-content: center;
