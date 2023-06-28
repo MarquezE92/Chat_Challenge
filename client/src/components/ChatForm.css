@@ -1,6 +1,9 @@
 .message-form-container {
     max-width: 400px;
     margin: 0 auto;
+    position: fixed;
+    top: 50px;
+    right: 15%;
   }
   
   .form-group {
