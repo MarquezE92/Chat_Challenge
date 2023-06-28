@@ -5,11 +5,14 @@ router.use(express.json());
 const mongoose = require('mongoose');
 const Chat = require ('../models/chat');
 
+//TODO Llamó a los mensajes, los ordeno del último al primero y limito el envío a los primeros 10
 const routeGetAllMessages = async (req, res) => {
    
     try{
-        const find = await Chat.find().sort({_id: -1}).limit(5)
-       
+        const find = await Chat.find().sort('-_id').limit(10) 
+       //* podríamos usar un obj en el sort: {_id: -1} ó {_id: 'desc'}
+       //* limit nos deja elegir el número máximo de elementos a retornar
+
         return res.status(200).json(find)
     } catch (error) {
         return res.status(500).json({error})

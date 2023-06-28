@@ -1,0 +1,16 @@
+cookies: pequeños fragmentos de información que se almacenan en el lado del cliente (navegador) y se envían al servidor en cada solicitud.
+
+cookie-parser: middleware de Express mediante app.use(cookieParser()) se utiliza para analizar y administrar las cookies en una aplicación web.
+¿Cómo llegan? -> objeto req.cookies, 
+Establecer nuevas -> res.cookie()  se especifica el nombre de la cookie, su valor y opciones adicionales, 
+                                    como la duración (maxAge) y la propiedad httpOnly.
+Esto resulta útil en diversas situaciones, como:
+                                        - mantener el estado de la sesión de un usuario
+                                        - almacenar preferencias del usuario
+                                        - realizar seguimiento de ciertos datos en la aplicación web.
+
+
+CORS (Cross-Origin Resource Sharing) es un mecanismo de seguridad implementado en los navegadores web que controla el acceso a recursos 
+(como archivos, datos, etc.) en un servidor desde un origen (dominio, esquema y puerto) diferente al del propio servidor. 
+CORS se aplica principalmente para prevenir ataques de tipo Cross-Site Scripting (XSS) y Cross-Site Request Forgery (CSRF).
+'cors' es un paquete de middleware de Express que simplifica la configuración de CORS y maneja automáticamente los encabezados CORS necesarios.
