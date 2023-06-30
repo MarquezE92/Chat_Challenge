@@ -1,4 +1,7 @@
-const  mongoose = require('mongoose');
+const  mongoose = require('mongoose'); 
+//* Facilita la interacción con la db y permite definir modelos con esquemas para los documentos.
+            // - Aporta una estructura más rígida y coherente para los datos almacenados en MongoDB.
+            // - Permite agregar validaciones para mantener la integridad de los datos.
 
 const chatEsquema = new mongoose.Schema(
 {

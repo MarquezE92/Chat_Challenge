@@ -5,7 +5,10 @@ router.use(express.json());
 const mongoose = require('mongoose');
 const Chat = require ('../models/chat');
 
-//TODO Llamó a los mensajes, los ordeno del último al primero y limito el envío a los primeros 10
+// - Mongoose nos permite realizar consultas y operaciones avanzadas
+// - Funciona de manera asincrónica
+
+// Llamó a los mensajes, los ordeno del último al primero y limito el envío a los primeros 10
 const routeGetAllMessages = async (req, res) => {
    
     try{

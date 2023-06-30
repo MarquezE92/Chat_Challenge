@@ -14,3 +14,5 @@ CORS (Cross-Origin Resource Sharing) es un mecanismo de seguridad implementado e
 (como archivos, datos, etc.) en un servidor desde un origen (dominio, esquema y puerto) diferente al del propio servidor. 
 CORS se aplica principalmente para prevenir ataques de tipo Cross-Site Scripting (XSS) y Cross-Site Request Forgery (CSRF).
 'cors' es un paquete de middleware de Express que simplifica la configuración de CORS y maneja automáticamente los encabezados CORS necesarios.
+
+MongoDB: es una base de datos orientada a documentos que almacena la información en forma de documentos JSON
