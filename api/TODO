@@ -1,3 +1,20 @@
-- Mostrar los pasos para crear la base de datos en Mongo obtener la url Atlas
-- Breve introducción a las bases de datos SQL y NoSQL
-- Diferencias entre tablas y colecciones (métodos para relacionar en Mongo)
+
+1- CONFIGURACIÓN DE LA BASE DE DATOS DE MONGODB
+ - Vamos a https://www.mongodb.com/cloud/atlas/register y nos registramos.
+ - Una vez iniciado sesión, en la barra lateral, está la sección de DEPLOYMENT
+                                                                        ↓
+                                                                     Database
+ - Hacen click en + CREATE y de las tres opciones de db elijen la free (más que suficiente para el challenge) y la región.
+ - Una vez tienen el cluster creado, van a Network Access, en la sección de SECURITY de la barra lateral 
+ y agregan los IP desde donde queremos que se puedan conectar a nuestra base de datos -> Acceso irrestricto = 0.0.0.0/0
+ - Después, seguimos en SECURITY y vamos a Quickstart, donde vamos a definir nuestro username y password (nos guardamos la password en un lugar seguro).
+ - Y finalmente, ubicados en la pestaña de Data Services, le damos a Connect, elegimos la opción de Connect to your application y copiamos la url.
+ - Vamos a tener que reemplazar la parte de <password> por nuestra contraseña.
+    Características del cluster free:
+        Storage: 512MB
+        Memory: 0.5GB
+        Data transfer: 10 GB por día para transferencia de datos, ya sea que entre o salga del cluster.
+        Collections: Hasta 500.
+        No tiene back up.
+
+

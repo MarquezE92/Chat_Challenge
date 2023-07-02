@@ -16,3 +16,40 @@ CORS se aplica principalmente para prevenir ataques de tipo Cross-Site Scripting
 'cors' es un paquete de middleware de Express que simplifica la configuración de CORS y maneja automáticamente los encabezados CORS necesarios.
 
 MongoDB: es una base de datos orientada a documentos que almacena la información en forma de documentos JSON
+MONGO VS SQL
+-> Modelo de datos:
+MongoDB es una base de datos NoSQL orientada a documentos, mientras que las bases de datos SQL utilizan un enfoque basado en tablas. 
+En MongoDB, los datos se almacenan en documentos BSON (Binary JSON) flexibles y jerárquicos, similar a los objetos JSON, lo que permite 
+una estructura más dinámica y escalable. En las bases de datos SQL, los datos se organizan en tablas con filas y columnas, lo que sigue un 
+esquema predefinido.
+-> Flexibilidad del esquema:
+En MongoDB, no es necesario definir un esquema fijo antes de almacenar los datos. Cada documento puede tener una estructura diferente 
+y no se requiere que todos los documentos en una colección tengan los mismos campos. Esto facilita la adaptación y evolución de la estructura 
+de los datos. En las bases de datos SQL, se define un esquema rígido antes de almacenar los datos y todas las filas deben seguir ese esquema. 
+Cualquier desviación del esquema puede generar errores.
+-> Consultas y lenguaje: 
+MongoDB utiliza un lenguaje de consulta llamado MongoDB Query Language (MQL) que es similar a JavaScript y permite realizar consultas complejas 
+y flexibles, incluyendo consultas por campos, consultas anidadas y agregaciones. 
+En cambio, las bases de datos SQL utilizan el lenguaje SQL estándar para realizar consultas, que sigue una estructura de sentencias como SELECT, 
+INSERT, UPDATE y DELETE. SQL ofrece un amplio conjunto de operaciones y funciones para consultas, agregaciones y manipulación de datos.
+-> Escalabilidad: 
+MongoDB está diseñado para escalar horizontalmente de manera efectiva. Permite la distribución de datos en múltiples servidores y la replicación 
+para garantizar la disponibilidad y la tolerancia a fallos. Las bases de datos SQL también pueden escalar, pero generalmente se basan en 
+configuraciones de escalado vertical, donde se aumentan los recursos de hardware de un servidor para manejar cargas de trabajo más grandes.
+-> Transacciones y consistencia: 
+Las bases de datos SQL son conocidas por su capacidad para mantener la integridad de los datos mediante el uso de transacciones ACID 
+(Atomicidad, Consistencia, Aislamiento y Durabilidad). Esto garantiza que las operaciones se realicen de manera segura y coherente. 
+En MongoDB, la consistencia de los datos se puede personalizar según las necesidades del sistema, lo que permite un mayor rendimiento, 
+pero con menor consistencia en ciertas situaciones.
+-> Uso de índices: 
+Tanto MongoDB como las bases de datos SQL admiten la creación de índices para mejorar el rendimiento de las consultas. 
+Sin embargo, MongoDB ofrece índices más flexibles, incluyendo índices secundarios múltiples, índices geoespaciales y texto completo, 
+lo que facilita la indexación y búsqueda de datos complejos.
+    SE PUEDEN RELACIONAR LAS COLECCIONES EN MONGO? 
+ Al crear la colección, referenciamos la colección con la que queremos vincularla. Ej:
+   emisor: { type: Schema.Types.ObjectId, ref: ' Usuarios ' }
+   receptores: [ { type: Schema.Types.ObjectId, ref: 'Usuarios' }]
+
+Y para traer la información de esta otra colección, usamos populate()
+  const mensajes = await Chat.find().populate("emisor")
+                                    .populate({ path: ' emisor ', select: 'nombre' })
