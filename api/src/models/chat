@@ -6,8 +6,8 @@ const  mongoose = require('mongoose');
 const chatEsquema = new mongoose.Schema(
 {
 	content: {
-        type: String,
-        required: true,
+        type: String,   //* Definimos el tipo de dato permitido.
+        required: true, //* No va a crearse un documento de chat, si no le pasamos información para todos los campos "required"
     },
     sender: {
         type: String,
@@ -20,6 +20,7 @@ const chatEsquema = new mongoose.Schema(
     
 }
 // // { timestamps: true }
+//! Si bien nos piden guardar la fecha, el timestamp viene activo por defecto, así que no es necesario sumarlo
 );
 
 module.exports = mongoose.model('chat', chatEsquema)

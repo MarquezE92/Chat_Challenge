@@ -17,4 +17,18 @@
         Collections: Hasta 500.
         No tiene back up.
 
+2- MONTAR EL BACK
+-	Creamos la carpeta api, le agregamos el archivo .gitignore.
+-	Creamos nuestro archivo package.json y vamos a instalar:
+-	*cors para poder configurar el acceso a nuestro servidor desde el front que se va a manejar en el puerto 5173.
+-	*dotenv para poder manejarnos con el archivo .env
+-	*express que es nuestro framework para Node.
+-	*mongoose que vamos a usar para construir el modelo para los mensajes del chat.
+-	*nodemon que vamos a usar en nuestro script de start para que se vuelva a levantar el servidor después de cada cambio que hagamos.
+-	*socket.io con el que vamos a asegurarnos de mantener la relación bidireccional en tiempo real cliente/servidor para que los chats se actualicen sin necesidad de recargar la página.
 
+
+3- CREACIÓN DEL MODELO PARA LOS MENSAJES DEL CHAT CON MONGOOSE
+ - En nuestro back: api/src/models.
+
+4- 
