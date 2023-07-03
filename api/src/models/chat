@@ -18,9 +18,9 @@ const chatEsquema = new mongoose.Schema(
         required: true,
     },
     
-}
-// // { timestamps: true }
-//! Si bien nos piden guardar la fecha, el timestamp viene activo por defecto, así que no es necesario sumarlo
+},
+{ timestamps: true }
+//! El timestamp no viene por defecto, pero podemos agregarlo.
 );
 
 module.exports = mongoose.model('chat', chatEsquema)

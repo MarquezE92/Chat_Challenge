@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Chat.css';
-import io from 'socket.io-client';
+//* librería que proporciona la funcionalidad de WebSockets para establecer una conexión en tiempo real con el servidor.
+import io from 'socket.io-client'; 
 
 interface Message {
   content: string;
@@ -10,10 +11,12 @@ interface Message {
   createdAt: Date;
 }
 
+//TODO Este componente va a encargarse de mostrar la lista de mensajes.
 const Chat = () => {
   const [chatMessages, setChatMessages] = useState<Message[]>([])
 
   function formatDate(date: Date): string {
+  
     const dateString = date?.toString();
     const day = `${dateString.substring(8, 10)}/${dateString.substring(5, 7)}`
     const hour = `${new Date(date).getHours()}:${dateString.substring(14, 16)}`
@@ -21,9 +24,9 @@ const Chat = () => {
     return ` ${day} at ${hour}`;
   }
 
-  const socket = io('http://localhost:3002');
-  socket.on('update', (data: Message) => {
-    axios.get('http://localhost:3002/messages')
+  const socket = io('http://localhost:3002');   //* Se crea una instancia de Socket.io utilizando la URL del servidor
+  socket.on('update', (data: Message) => {      //* Este ecento se activa cuando se recibe una actualización de mensajes en tiempo real desde el server
+    axios.get('http://localhost:3002/messages') //* Llamamos a la nueva lista de mensajes
       .then((response) => {
         console.log('Message sent successfully!', response.data);
         setChatMessages(response.data)
@@ -56,7 +59,7 @@ const Chat = () => {
     <div className='messagesContainer'>
       {
         chatMessages?.map(message => (
-          <div className='chatBubble'>
+          <div className='chatBubble' key={message.createdAt.toString()}>
             <p className='date'>{formatDate(message.createdAt)}</p>
             <p className='interlocutors'><span>From:</span> {message.sender}</p>
             <p className='interlocutors'><span>To:</span> {message.recipient}</p>

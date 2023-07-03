@@ -33,3 +33,18 @@
 
 4- GESTIONAMOS LAS RUTAS PARA EL ENVÍO Y RECEPCIÓN DE MENSAJES
  - api/src/routes
+
+5- CONFIGURAMOS Y LEVANTAMOS NUESTRO SERVIDOR
+ - api/index.js
+
+ 6- MONTAMOS FRONT
+  - npm create vite@latest client --template react-ts
+  - Con las flechas y Enter confirmamos la opción de la plantilla React y Typescript.
+  - cd client
+  - npm install
+  - npm run dev (confirmamos que se haya levantado el front en el puerto  http://localhost:5173/)
+Elegimos Vite como herramienta de compilación porque es más rápido.
+Nos va a requerir una versión de Node mayor a la 16, puede que alguna plantilla pida más, el gestor de paquetes nos va a advertir.
+¿Cómo sabemos qué versión tenemos?
+(en consola):   node -v
+
