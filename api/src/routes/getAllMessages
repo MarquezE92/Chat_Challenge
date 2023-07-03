@@ -1,9 +1,4 @@
-const { Router } = require('express');
-const router = Router();
-const express = require('express');
-router.use(express.json());
-const mongoose = require('mongoose');
-const Chat = require ('../models/chat');
+const Chat = require ('../models/chat'); //* Nos traemos el modelo al cual le vamos a estar haciendo consultas 
 
 // - Mongoose nos permite realizar consultas y operaciones avanzadas
 // - Funciona de manera asincrónica
@@ -12,15 +7,15 @@ const Chat = require ('../models/chat');
 const routeGetAllMessages = async (req, res) => {
    
     try{
-        const find = await Chat.find().sort('-_id').limit(10) 
+        const find = await Chat.find().sort('-_id').limit(10)  //* podríamos filtrar la búsqueda enviándole un objeto al find
        //* podríamos usar un obj en el sort: {_id: -1} ó {_id: 'desc'}
        //* limit nos deja elegir el número máximo de elementos a retornar
 
-        return res.status(200).json(find)
-    } catch (error) {
-        return res.status(500).json({error})
+        return res.status(200).json(find)       //* Envío de los mensajes al cliente.
+    } catch (error) {                           //* Capturamos el error
+        return res.status(500).json({error})    //* Enviamos el error al cliente
     } 
 
 };
 
-module.exports = { routeGetAllMessages };
+module.exports = { routeGetAllMessages };       //* Exportamos la función

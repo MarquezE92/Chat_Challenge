@@ -1,21 +1,21 @@
-const { Router } = require('express');
-const mongoose = require('mongoose');
-const Chat = require ('../models/chat');
-const router = Router();
-const express = require('express');
-router.use(express.json());
+const Chat = require ('../models/chat'); //* Importamos el modelo de datos al cual le vamos a estar sumando un documento.
+
 
 const routePostMessage = async (req,res)=> {
-	const newMessage = new Chat(req.body);
-
+	
 	try{
-		const newEntry = await newMessage.save()
-		res.send("New message registered in chat");
-	} catch(error) {
-		console.log(error)
-		res.status(500).json(error)
+		const newMessage = new Chat(req.body);		//* Creamos una instancia del modelo Chat, con los datos que lleguen por body.
+		//* En mongoose, a newMessage se le llama "document".
+		const newEntry = await newMessage.save()	//* Usamos el método save() del modelo que creamos para guardar la nueva instancia creada.
+										//* .save() devuelve una promesa: doc.save().then(savedDoc => {savedDoc === doc; // true});
+		//! Al usar await, el código se detiene hasta que la operación de guardado se complete y se obtenga el resultado.
+
+		res.send("New message registered in chat"); //* Envío de respuesta de éxito al cliente.
+	} catch(error) {								//* Capturamos el error
+		console.log(error)							//* Lo mostramos en consola 
+		res.status(500).json(error)					//* Enviamos el error al cliente
 	}
 	
 };
 
-module.exports = { routePostMessage };
+module.exports = { routePostMessage };				//* Exportamos la función
