@@ -42,6 +42,8 @@ const ChatForm = () => {
         console.error('Error sending message:', error);           //* Consologueamos el error
         // Aquí puedes manejar el error de envío de mensaje
       });
+
+      
   };
 
   //TODO Renderizado del componente

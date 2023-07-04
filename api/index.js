@@ -75,6 +75,7 @@ cors: {
 }, //* no es necessario para el desafío ni autenticación ni manejo de sesiones
 });
 
+
 //* Vamos a usar una funcionalidad de MongoDB llamada Change Streams para observar cambios en la colección Chat.
 //* La función watch() devuelve un objeto de cambio (ChangeStream) que puede recibir eventos de cambio en la colección.
 Chat.watch().on('change', data => {     
