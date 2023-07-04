@@ -48,4 +48,13 @@ Nos va a requerir una versión de Node mayor a la 16, puede que alguna plantilla
 ¿Cómo sabemos qué versión tenemos?
 (en consola):   node -v
 
-7- 
+7- CREAMOS FORMULARIO PARA CARGAR LOS MENSAJES
+
+8- CREAMOS EL COMPONENTE DONDE SE MUESTREN LOS MENSAJES
+
+9- INTEGRAMOS AMBOS COMPONENTES EN NUESTRA <app/>
+
+10- ESTABLECEMOS LA COMUNICACIÓN EN TIEMPO REAL CON WEBSOCKET
+ - En nuestro back creamos una instancia de Socket.IO y aprovechamos la funcionalidad de MongoDB "Change Streams" para observar cuando haya cambios en la colección.
+ - Con la instacia de Socket.IO disparamos un evento de 'update' cuando se haya producido el cambio en la colección.
+ - En nuestro front llamamos a 'socket.io-client' y creamos una instacia para escuchar el evento de 'update' y renderizar el nuevo mensaje.
