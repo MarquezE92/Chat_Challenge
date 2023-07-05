@@ -28,7 +28,7 @@ const socket = io('http://localhost:3002');   //* Se crea una instancia de Socke
 
 socket.on('connect', ()=> console.log('Tenemos comunicación bidireccional en tiempo real'))
 
-  socket.on('update', (data: Message) => {      //* Este ecento se activa cuando se recibe una actualización de mensajes en tiempo real desde el server
+  socket.on('update', (data: Message) => {      //* Este evento se activa cuando se recibe una actualización de mensajes en tiempo real desde el server
     axios.get('http://localhost:3002/messages') //* Llamamos a la nueva lista de mensajes
       .then((response) => {
         console.log('New message!', response.data);

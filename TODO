@@ -35,6 +35,7 @@
  - api/src/routes
 
 5- CONFIGURAMOS Y LEVANTAMOS NUESTRO SERVIDOR
+ - api/app.js
  - api/index.js
 
  6- MONTAMOS FRONT
