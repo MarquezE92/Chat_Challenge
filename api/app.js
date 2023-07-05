@@ -5,8 +5,7 @@ const routes = require('./src/routes/index'); //En routes tenemos los endpoints 
 //const cookieParser = require('cookie-parser'); //* No es necesario, no vamos a estar manejando cookies
 //const bodyParser = require('body-parser'); //* No es necesario, se puede reemplazar con express
 //const cors = require('cors'); //*paquete de middleware de Express que simplifica la configuración de CORS, en este caso vamos a configurar los headers manualmente
-const socketIO = require('socket.io'); //* biblioteca JavaScript para comunicación bidireccional y en tiempo real cliente/servidor
-const Chat = require ('./src/models/chat'); //* Llamo al esquema creado con Mongoose.
+
 require("dotenv").config();     //*Para usar las variables de entorno de nuestro archivo .env
 
 // INICIALIZACION
@@ -20,6 +19,7 @@ const app = express();  //* creo una instancia de la aplicación de Express
 //app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 //app.use(express.json({ limit: '50mb' }));
 //app.use(cookieParser());
+app.use(express.json());            //* Utilizamos el método json() para parsear las solicitudes entrantes con formato JSON.
                             //* Configuración personalizada de cors 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); //* para permitir solicitudes desde nuestro front

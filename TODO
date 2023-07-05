@@ -6,7 +6,7 @@
                                                                      Database
  - Hacen click en + CREATE y de las tres opciones de db elijen la free (más que suficiente para el challenge) y la región.
  - Una vez tienen el cluster creado, van a Network Access, en la sección de SECURITY de la barra lateral 
- y agregan los IP desde donde queremos que se puedan conectar a nuestra base de datos -> Acceso irrestricto = 0.0.0.0/0
+ y agregan los IP desde donde queremos que se puedan conectar a nuestra base de datos -> ¿Cómo obtengo mi IP público? https://www.whatismyip.com/ 
  - Después, seguimos en SECURITY y vamos a Quickstart, donde vamos a definir nuestro username y password (nos guardamos la password en un lugar seguro).
  - Y finalmente, ubicados en la pestaña de Data Services, le damos a Connect, elegimos la opción de Connect to your application y copiamos la url.
  - Vamos a tener que reemplazar la parte de <password> por nuestra contraseña.
@@ -48,6 +48,10 @@ Elegimos Vite como herramienta de compilación porque es más rápido.
 Nos va a requerir una versión de Node mayor a la 16, puede que alguna plantilla pida más, el gestor de paquetes nos va a advertir.
 ¿Cómo sabemos qué versión tenemos?
 (en consola):   node -v
+VENTAJAS DE TYPESCRIPT
+-	Al asignar tipos estáticos, su verificación permite detectar errores comunes en tiempo de compilación, lo que ayuda a prevenir errores en tiempo de ejecución y mejora la calidad del código.
+-	El sistema de tipos vuelve explícito cómo tienen que usarse las funciones y variables, lo que hace al código más fácil de entender y facilita el trabajo en equipo.
+
 
 7- CREAMOS FORMULARIO PARA CARGAR LOS MENSAJES
 

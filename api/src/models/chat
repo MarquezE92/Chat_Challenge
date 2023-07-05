@@ -10,8 +10,8 @@ const chatEsquema = new mongoose.Schema(
         required: true, //* No va a crearse un documento de chat, si no le pasamos información para todos los campos "required"
     },
     sender: {
-        type: String,
-        required: true,
+        type: String,   // Schema.Types.ObjectId
+        required: true, // ref: "Usuarios"
     },
     recipient: {
         type: String,
@@ -19,8 +19,10 @@ const chatEsquema = new mongoose.Schema(
     },
     
 },
-{ timestamps: true }
-//! El timestamp no viene por defecto, pero podemos agregarlo.
+{ timestamps: {
+    createdAt: 'fecha'
+} }
+//! El timestamp no viene por defecto, pero mongoose soporta la opción.
 );
 
 module.exports = mongoose.model('chat', chatEsquema)

@@ -8,7 +8,7 @@ interface Message {
   content: string;
   sender: string;
   recipient: string;
-  createdAt: Date;
+  fecha: Date;
 }
 
 //TODO Este componente va a encargarse de mostrar la lista de mensajes.
@@ -18,7 +18,7 @@ const Chat = () => {
   function formatDate(date: Date): string {
   
     const dateString = date?.toString();
-    const day = `${dateString.substring(8, 10)}/${dateString.substring(5, 7)}`
+    const day = `${new Date(date).getDate()}/${new Date(date).getMonth()+1}`
     const hour = `${new Date(date).getHours()}:${dateString.substring(14, 16)}`
 
     return ` ${day} at ${hour}`;
@@ -62,8 +62,8 @@ socket.on('connect', ()=> console.log('Tenemos comunicación bidireccional en ti
     <div className='messagesContainer'>
       {
         chatMessages?.map(message => (
-          <div className='chatBubble' key={message.createdAt.toString()}>
-            <p className='date'>{formatDate(message.createdAt)}</p>
+          <div className='chatBubble' key={message.fecha.toString()}>
+            <p className='date'>{formatDate(message.fecha)}</p>
             <p className='interlocutors'><span>From:</span> {message.sender}</p>
             <p className='interlocutors'><span>To:</span> {message.recipient}</p>
             <br />
