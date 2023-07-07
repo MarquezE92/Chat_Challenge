@@ -5,8 +5,8 @@ const Chat = require ('../models/chat'); //* Nos traemos el modelo al cual le va
 
 // Llamó a los mensajes, los ordeno del último al primero y limito el envío a los primeros 10
 const routeGetAllMessages = async (req, res) => {
-   
-    try{
+                                    //.populate("emisor")
+    try{                            //.populate({ path: ' emisor ', select: 'nombre' })
         const find = await Chat.find().sort('-_id').limit(10)  //* podríamos filtrar la búsqueda enviándole un objeto al find
        //* podríamos usar un obj en el sort: {_id: -1} ó {_id: 'desc'}
        //* limit nos deja elegir el número máximo de elementos a retornar

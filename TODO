@@ -20,7 +20,7 @@
 2- MONTAR EL BACK
 -	Creamos la carpeta api, le agregamos el archivo .gitignore.
 -	Creamos nuestro archivo package.json y vamos a instalar:
--	*cors para poder configurar el acceso a nuestro servidor desde el front que se va a manejar en el puerto 5173.
+-	*cors, middleware de Express que simplifica la configuración de CORS, al manejar automáticamente los encabezados necesarios (en principio no lo vamos a usar).
 -	*dotenv para poder manejarnos con el archivo .env
 -	*express que es nuestro framework para Node.
 -	*mongoose que vamos a usar para construir el modelo para los mensajes del chat.

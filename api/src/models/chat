@@ -14,7 +14,7 @@ const chatEsquema = new mongoose.Schema(
         required: true, // ref: "Usuarios"
     },
     recipient: {
-        type: String,
+        type: String,   // [ { type: Schema.Types.ObjectId, ref: 'Usuarios' }]
         required: true,
     },
     
